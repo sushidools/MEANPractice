@@ -1,0 +1,59 @@
+<div id="registration">
+  <a style='text-align: right;' routerLink='/login'>Returning User?</a>
+  <div *ngIf="registrationErrors.length">
+    <ul class="alert alert-danger">
+      <li *ngFor="let error of registrationErrors">{{ error }}</li>
+    </ul>
+  </div>
+  <form (submit)="onSubmit($event, register.value)"
+  #register="ngForm"
+  class="form-group"
+  autocomplete="off" >
+    <fieldset>
+      <legend>Registration</legend>
+      <div class="form-control">
+        <label for="firstName">First Name: </label>
+        <input type="text"
+        name="firstName"
+        #firstName="ngModel"
+        [(ngModel)]="user.firstName">
+      </div>
+      <div class="form-control">
+        <label for="lastName">Last Name: </label>
+        <input type="text"
+        name="lastName"
+        #lastName="ngModel"
+        [(ngModel)]="user.lastName">
+      </div>
+      <div class="form-control">
+        <label for="email">Email: </label>
+        <input ttype="email"
+        name="email"
+        #username="ngModel"
+        [(ngModel)]="user.email">
+      </div>
+      <div class="form-control">
+        <label for="password">Password: </label>
+        <input type="password"
+        name="password"
+        #password="ngModel"
+        [(ngModel)]="user.password"
+        validateEqual='confirmPassword'
+        reverse='true'
+        minlength="8">
+      </div>
+      <div class="form-control">
+        <label for="confirmPassword">Confirm Password: </label>
+        <input type="password"
+        name='confirmPassword'
+        [ngModel]='user.confirmPassword'
+        required validateEqual='password'
+        #confirmPassword="ngModel">
+      </div>
+      <div class="form-control">
+        <button *ngIf='register.valid'>Register</button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+

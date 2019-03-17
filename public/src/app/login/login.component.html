@@ -1,0 +1,35 @@
+<div id="loginForm">
+  <a style='text-align: right;' routerLink='/register'>New User</a>
+    <div *ngIf="errors.length">
+      <ul class="alert alert-danger">
+        <li *ngFor="let error of errors">{{ error }}</li>
+      </ul>
+    </div>
+  <form (submit)="onSubmit(login.value)" #login="ngForm" class="form-group">
+    <fieldset>
+      <legend>Login</legend>
+      <div class="form-control">
+        <label for="email">Email: </label>
+        <input
+        type="text"
+        name="email"
+        #name="ngModel"
+        [(ngModel)]="user.email"
+        >
+      </div>
+      <br>
+      <div class="form-control">
+        <label for="password">Password: </label>
+        <input
+        type="password"
+        name="password"
+        #password="ngModel"
+        [(ngModel)]="user.password"
+        minlength="8">
+      </div>
+      <div class="form-control">
+        <button *ngIf="login.valid">Login</button>
+      </div>
+    </fieldset>
+  </form>
+</div>

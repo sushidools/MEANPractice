@@ -1,0 +1,21 @@
+button {
+  background:none!important;
+  color: blue;
+  border:none;
+  padding:0!important;
+  font: inherit;
+  /*border is optional*/
+  border-bottom:1px solid blue;
+  cursor: pointer;
+}
+a {
+  background:none!important;
+  color: blue;
+  border:none;
+  padding:0!important;
+  text-decoration: none;
+  font: inherit;
+  /*border is optional*/
+  border-bottom:1px solid blue;
+  cursor: pointer;
+}
